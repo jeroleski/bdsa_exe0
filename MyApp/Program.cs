@@ -27,7 +27,9 @@ namespace MyApp
 
         public static bool IsLeapYear(int year)
         {
-            if (year % 100 == 0) {
+            if (year < 1582) {
+                return false;
+            } else if (year % 100 == 0) {
                 return year % 400 == 0;
             } else {
                 return year % 4 == 0;
