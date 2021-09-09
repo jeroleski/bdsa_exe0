@@ -82,6 +82,7 @@ namespace MyApp.Tests
         {
             bool l = Program.IsLeapYear(697);
             Assert.False(l);
+            
         }
     }
 }
