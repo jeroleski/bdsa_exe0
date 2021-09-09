@@ -36,43 +36,50 @@ namespace MyApp.Tests
         }
 
         [Fact]
-        public void Test_DivBy100_1() {
+        public void Test_DivBy100_1()
+        {
             bool l = Program.IsLeapYear(208);
             Assert.True(l);
         }
 
         [Fact]
-        public void Test_DivBy100_2() {
+        public void Test_DivBy100_2()
+        {
             bool l = Program.IsLeapYear(700);
             Assert.False(l);
         }
 
         [Fact]
-        public void Test_DivBy100_3() {
+        public void Test_DivBy100_3()
+        {
             bool l = Program.IsLeapYear(1199);
             Assert.False(l);
         }
 
         [Fact]
-        public void Test_DivBy400_1() {
+        public void Test_DivBy400_1()
+        {
             bool l = Program.IsLeapYear(1200);
             Assert.True(l);
         }
 
         [Fact]
-        public void Test_DivBy400_2() {
+        public void Test_DivBy400_2()
+        {
             bool l = Program.IsLeapYear(1836);
             Assert.True(l);
         }
 
         [Fact]
-        public void Test_DivBy400_3() {
+        public void Test_DivBy400_3()
+        {
             bool l = Program.IsLeapYear(300);
             Assert.False(l);
         }
 
         [Fact]
-        public void Test_DivBy400_4() {
+        public void Test_DivBy400_4()
+        {
             bool l = Program.IsLeapYear(697);
             Assert.False(l);
         }
