@@ -6,7 +6,7 @@ namespace MyApp.Tests
 {
     public class UnitTest1
     {
-        [Fact]
+        /*[Fact]
         public void Test_MainPrintsHelloWorld()
         {
             //Arrange
@@ -19,7 +19,7 @@ namespace MyApp.Tests
             //Assert
             var line = wr.GetStringBuilder().ToString().Trim();
             Assert.Equal("Hello World!", line);
-        }
+        }*/
 
         [Fact]
         public void Test_DivBy4_1()
@@ -82,6 +82,54 @@ namespace MyApp.Tests
         {
             bool l = Program.IsLeapYear(697);
             Assert.False(l);
+        }
+
+        [Fact]
+        public void Test_ReadYearFromConsole_1()
+        {
+            
+            //Arrange
+            var wr = new StringWriter();
+            Console.SetOut(wr);
+
+            var re = new StringReader("400");
+            Console.SetIn(re);
+
+            //Act
+            Program.Main(new String[0]);
+
+            //Assert
+            var line = wr.GetStringBuilder().ToString().Trim();
+            Assert.Equal("yay", line);
+        }
+
+        public void Test_ReadYearFromConsole_2()
+        {
+            
+            //Arrange
+            var wr = new StringWriter();
+            Console.SetOut(wr);
+
+            var re = new StringReader("703");
+            Console.SetIn(re);
+
+            //Act
+            Program.Main(new String[0]);
+
+            //Assert
+            var line = wr.GetStringBuilder().ToString().Trim();
+            Assert.Equal("nay", line);
+        }
+
+        [Fact]
+        public void Test_1()
+        {
+            
+        }
+
+        [Fact]
+        public void Test_2()
+        {
             
         }
     }

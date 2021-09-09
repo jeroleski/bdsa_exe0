@@ -6,7 +6,23 @@ namespace MyApp
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
+
+            var line = Console.ReadLine();
+            int a;
+            if (! int.TryParse(line, out a)) {
+                Console.WriteLine("Bish, you must write number!");
+                return;
+            }
+
+            int year = int.Parse(line);
+            bool isLeapYear = IsLeapYear(year);
+
+            if (isLeapYear) {
+                Console.WriteLine("yay");
+            } else {
+                Console.WriteLine("nay");
+            }
         }
 
         public static bool IsLeapYear(int year)
