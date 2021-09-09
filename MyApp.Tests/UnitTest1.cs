@@ -24,42 +24,42 @@ namespace MyApp.Tests
         [Fact]
         public void Test_DivBy4_1()
         {
-            bool l = Program.IsLeapYear(24);
+            bool l = Program.IsLeapYear(4024);
             Assert.True(l);
         }
 
         [Fact]
         public void Test_DivBy4_2()
         {
-            bool l = Program.IsLeapYear(15);
+            bool l = Program.IsLeapYear(4015);
             Assert.False(l);
         }
 
         [Fact]
         public void Test_DivBy100_1()
         {
-            bool l = Program.IsLeapYear(208);
+            bool l = Program.IsLeapYear(1808);
             Assert.True(l);
         }
 
         [Fact]
         public void Test_DivBy100_2()
         {
-            bool l = Program.IsLeapYear(700);
+            bool l = Program.IsLeapYear(1700);
             Assert.False(l);
         }
 
         [Fact]
         public void Test_DivBy100_3()
         {
-            bool l = Program.IsLeapYear(1199);
+            bool l = Program.IsLeapYear(2099);
             Assert.False(l);
         }
 
         [Fact]
         public void Test_DivBy400_1()
         {
-            bool l = Program.IsLeapYear(1200);
+            bool l = Program.IsLeapYear(1600);
             Assert.True(l);
         }
 
@@ -73,26 +73,25 @@ namespace MyApp.Tests
         [Fact]
         public void Test_DivBy400_3()
         {
-            bool l = Program.IsLeapYear(300);
+            bool l = Program.IsLeapYear(1900);
             Assert.False(l);
         }
 
         [Fact]
         public void Test_DivBy400_4()
         {
-            bool l = Program.IsLeapYear(697);
+            bool l = Program.IsLeapYear(1697);
             Assert.False(l);
         }
 
         [Fact]
         public void Test_ReadYearFromConsole_1()
         {
-            
             //Arrange
             var wr = new StringWriter();
             Console.SetOut(wr);
 
-            var re = new StringReader("400");
+            var re = new StringReader("2000");
             Console.SetIn(re);
 
             //Act
@@ -103,14 +102,14 @@ namespace MyApp.Tests
             Assert.Equal("yay", line);
         }
 
+        [Fact]
         public void Test_ReadYearFromConsole_2()
         {
-            
             //Arrange
             var wr = new StringWriter();
             Console.SetOut(wr);
 
-            var re = new StringReader("703");
+            var re = new StringReader("1703");
             Console.SetIn(re);
 
             //Act
@@ -122,15 +121,28 @@ namespace MyApp.Tests
         }
 
         [Fact]
-        public void Test_1()
+        public void Test_IsNotYear()
         {
-            
+            //Arrange
+            var wr = new StringWriter();
+            Console.SetOut(wr);
+
+            var re = new StringReader("bonjourno");
+            Console.SetIn(re);
+
+            //Act
+            Program.Main(new String[0]);
+
+            //Assert
+            var line = wr.GetStringBuilder().ToString().Trim();
+            Assert.Equal("Bish, you must write number!", line);
         }
 
         [Fact]
-        public void Test_2()
+        public void Test_OnlyAfter1582()
         {
-            
+            bool l = Program.IsLeapYear(1580);
+            Assert.False(l);
         }
     }
 }
