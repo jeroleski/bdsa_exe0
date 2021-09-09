@@ -7,7 +7,7 @@ namespace MyApp.Tests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void Test_MainPrintsHelloWorld()
         {
             //Arrange
             var wr = new StringWriter();
@@ -19,6 +19,62 @@ namespace MyApp.Tests
             //Assert
             var line = wr.GetStringBuilder().ToString().Trim();
             Assert.Equal("Hello World!", line);
+        }
+
+        [Fact]
+        public void Test_DivBy4_1()
+        {
+            bool l = Program.IsLeapYear(24);
+            Assert.True(l);
+        }
+
+        [Fact]
+        public void Test_DivBy4_2()
+        {
+            bool l = Program.IsLeapYear(15);
+            Assert.False(l);
+        }
+
+        [Fact]
+        public void Test_DivBy100_1() {
+            bool l = Program.IsLeapYear(208);
+            Assert.True(l);
+        }
+
+        [Fact]
+        public void Test_DivBy100_2() {
+            bool l = Program.IsLeapYear(700);
+            Assert.False(l);
+        }
+
+        [Fact]
+        public void Test_DivBy100_3() {
+            bool l = Program.IsLeapYear(1199);
+            Assert.False(l);
+        }
+
+        [Fact]
+        public void Test_DivBy400_1() {
+            bool l = Program.IsLeapYear(1200);
+            Assert.True(l);
+        }
+
+        [Fact]
+        public void Test_DivBy400_2() {
+            bool l = Program.IsLeapYear(1836);
+            Assert.True(l);
+        }
+
+        [Fact]
+        public void Test_DivBy400_3() {
+            bool l = Program.IsLeapYear(300);
+            Assert.False(l);
+        }
+
+        [Fact]
+        public void Test_DivBy400_4() {
+            bool l = Program.IsLeapYear(697);
+            Assert.False(l);
         }
     }
 }
